@@ -59,6 +59,7 @@ define([
 
     inParent: function() {
       this._buildDropdown();
+	  this._label();
     },
 
     renderThis: function() {
