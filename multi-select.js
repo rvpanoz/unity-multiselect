@@ -151,7 +151,7 @@ define([
          this.$('.mscb-input').before($i);
          this.$('.mscb-input-values').append("<input type='hidden' class = 'mscb-hidden' data-id=" + id + ">");
       } else {
-        this.$('.mscb-helper').text('Value already exists.').show();
+        this.$('.mscb-helper').addClass('red').text('Value already exists.').show();
       }
 
       this._fixWidth();
@@ -219,7 +219,7 @@ define([
         e.preventDefault();
       }
       this._resetCollection(this.initialModels);
-      this.$('.mscb-helper').html('').hide();
+      this.$('.mscb-helper').removeClass('red').html('').hide();
 
     },
 
