@@ -204,8 +204,13 @@ define([
 
     _onToggle: function(e) {
       e.preventDefault();
+      var o = this.options;
+	    
       this.dropdown.$el.removeClass('fadeOut').removeClass('fadeIn');
       this.dropdown.$el.toggle();
+      if(o.animations) {
+        this._animateList();
+      }
       return false;
     },
 
