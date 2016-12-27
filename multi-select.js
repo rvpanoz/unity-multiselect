@@ -15,8 +15,8 @@ define([
     events: {
       'keyup': '_onKeyUp',
       'click .mscb-trigger': '_onToggle',
-      'click .mscb-listItem': '_onSelect',
-      'click .close': '_onRemove'
+      'click a.mscb-listItem': '_onSelect',
+      'click span.close': '_onRemove'
     },
     config: {
       animations: true
