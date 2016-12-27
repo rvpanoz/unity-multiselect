@@ -19,7 +19,7 @@ define([
       'click .close': '_onRemove'
     },
     config: {
-      animations: false
+      animations: true
     },
 	  
     constructor: function() {
