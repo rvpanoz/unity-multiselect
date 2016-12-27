@@ -57,7 +57,6 @@ define([
       ].join("");
 
       this.listenTo(app, 'app:resize', this._onResize);
-      this.listenTo(this.collection, 'reset', this._onReset);
     },
 
     inParent: function() {
