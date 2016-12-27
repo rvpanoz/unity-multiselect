@@ -24,6 +24,7 @@ define([
 	  
     constructor: function() {
       app.classes.multiSelectCompoBox.__super__.constructor.apply(this, arguments);
+      $(document).on('click.'+this.id, _.bind(this._onShowHide, this));
     },
 
     initialize: function() {
@@ -72,6 +73,13 @@ define([
       this.$('.mscb-dropdown').animate({
         scrollTop: 0
       }, 'fast');
+    },
+	
+    _onShowHide: function(e) {
+      var target = e.target;
+      if(!$(target).closest('.xtype-multiSelectCompoBox').length) {
+        this._hideDropdown();
+      }
     },
 	  
     _onKeyUp: function(e) {
@@ -247,6 +255,10 @@ define([
       var inputOffset = input.offset().left - container.offset().left;
       var w = container.width() - inputOffset - 42;
       input.width(w);
+    },
+	  
+    destructor: function() {
+      $(document).off('click.'+this.id);
     }
 
   })
