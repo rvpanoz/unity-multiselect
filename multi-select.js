@@ -227,25 +227,35 @@ define([
 
     _buildDropdown: function() {
       var o = this.options;
-
-      this.dropdown = app.create({
-        className: 'mscb-dropdown animated',
-        items: [{
-          className: 'list-container',
-          items: [{
-            xtype: 'list',
-            itemId: 'list-box',
-            className: 'search-list',
-            collection: this.collection,
-            items: [{
-              body: "<a href='#' class=''mscb-listItem'>" + o.template + "</a>"
+      
+      try {
+      	//create dropdown
+      	this.dropdown = app.create({
+        	className: 'mscb-dropdown animated',
+        	items: [{
+          	className: 'list-container',
+          	items: [{
+            	xtype: 'list',
+            	itemId: 'list-box',
+            	className: 'search-list',
+            	collection: this.collection,
+            	items: [{
+              body: "<a href='#' class='mscb-listItem'>" + o.template + "</a>"
             }]
           }]
         }]
-      }).render();
+      });
+	
+      //render dropdown
+      this.dropdown.render();
 
-      //append dropdown
+      //append dropdown to this.$el
       this.$el.append(this.dropdown.$el);
+      } catch(e) {
+        throw new Error(e);
+      }
+	    
+      
     },
 
     _fixWidth: function() {
