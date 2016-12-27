@@ -15,7 +15,7 @@ define([
     events: {
       'keyup': '_onKeyUp',
       'click .mscb-trigger': '_onToggle',
-      'click .list-item': '_onSelect',
+      'click .mscb-listItem': '_onSelect',
       'click .close': '_onRemove'
     },
     config: {
@@ -238,7 +238,7 @@ define([
             className: 'search-list',
             collection: this.collection,
             items: [{
-              body: "<a href='#' class='list-item'>" + o.template + "</a>"
+              body: "<a href='#' class=''mscb-listItem'>" + o.template + "</a>"
             }]
           }]
         }]
