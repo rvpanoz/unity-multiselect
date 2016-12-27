@@ -18,7 +18,10 @@ define([
       'click .list-item': '_onSelect',
       'click .close': '_onRemove'
     },
-
+    config: {
+      animations: false
+    },
+	  
     constructor: function() {
       app.classes.multiSelectCompoBox.__super__.constructor.apply(this, arguments);
     },
@@ -65,7 +68,13 @@ define([
     renderThis: function() {
       this.$el.append(this._tpl(this.template));
     },
-
+    
+    _animateList: function (top) {
+      this.$('.mscb-dropdown').animate({
+        scrollTop: 0
+      }, 'fast');
+    },
+	  
     _onKeyUp: function(e) {
       var o = this.options;
       var value = this.$('.mscb-input').val().trim();
